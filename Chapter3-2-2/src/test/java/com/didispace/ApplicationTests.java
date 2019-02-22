@@ -44,6 +44,9 @@ public class ApplicationTests {
 		// 测试findByNameAndAge, 查询姓名为FFF并且年龄为60的User
 		Assert.assertEquals("FFF", userRepository.findByNameAndAge("FFF", 60).getName());
 
+		//按住键查找
+		User currentUser =		userRepository.findOne(1L);
+
 		// 测试删除姓名为AAA的User
 		userRepository.delete(userRepository.findByName("AAA"));
 
