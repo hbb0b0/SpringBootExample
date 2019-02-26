@@ -33,4 +33,15 @@ public interface UserMapper {
     @Insert("INSERT INTO user(name, age) VALUES(#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})")
     int insertByMap(Map<String, Object> map);
 
+
+    @Results({
+            @Result(property = "userName", column = "name"),
+            @Result(property = "userAge", column = "age"),
+            @Result(property = "userID", column = "id")
+    })
+    @Select("SELECT id,name, age FROM user")
+    List<UserInfo> findAllWithID();
+
+
+
 }
