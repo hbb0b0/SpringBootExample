@@ -5,6 +5,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 
 /**
  * @author 程序猿DD
@@ -20,5 +22,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @CachePut(key = "#p0.name")
     User save(User user);
+
+    @Cacheable(value="users",key = "#p0")
+    List<User> findByAge(Integer age);
 
 }

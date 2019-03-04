@@ -1,7 +1,6 @@
 package com.hbb0b0;
 
 import com.didispace.Application;
-import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -18,5 +17,13 @@ public class Hbb0b0ApplicationTests {
     public void test() throws Exception {
         MyLogApplication myLogApplication=new MyLogApplication();
     }
+
+    @Test
+    public void divide() throws Exception {
+        MyLogApplication myLogApplication=new MyLogApplication();
+        myLogApplication.divide(10);
+        myLogApplication.divide(0);
+    }
+
 
 }

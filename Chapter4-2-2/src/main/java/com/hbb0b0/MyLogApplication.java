@@ -10,4 +10,18 @@ public class MyLogApplication {
         logger.info(info);
         logger.debug(info);
     }
+
+    public void divide(int number)
+    {
+        final int sum=100;
+        String info;
+        try {
+             info=String.format("%d/%d=%d",sum,number,sum/number);
+            logger.info(info);
+        }
+        catch (Exception ex)
+        {
+            logger.error(ex);
+        }
+    }
 }

@@ -10,6 +10,8 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.cache.CacheManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * @author 程序猿DD
  * @version 1.0.0
@@ -29,6 +31,7 @@ public class ApplicationTests {
 	@Before
 	public void before() {
 		userRepository.save(new User("AAA", 10));
+		userRepository.save(new User("BBB", 10));
 	}
 
 	@Test
@@ -44,6 +47,9 @@ public class ApplicationTests {
 		userRepository.save(u1);
 		User u3 = userRepository.findByName("AAA");
 		System.out.println("第三次查询：" + u3.getAge());
+
+		List<User> ageList= userRepository.findByAge(new Integer(10));
+		System.out.println("第四次查询：" + ageList.size());
 
 	}
 

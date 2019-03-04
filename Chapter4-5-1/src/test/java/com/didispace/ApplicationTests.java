@@ -30,13 +30,20 @@ public class ApplicationTests {
 	@Test
 	public void sendSimpleMail() throws Exception {
 
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setFrom("dyc87112@qq.com");
-		message.setTo("dyc87112@qq.com");
-		message.setSubject("主题：简单邮件");
-		message.setText("测试邮件内容");
+		try {
+			SimpleMailMessage message = new SimpleMailMessage();
+			message.setFrom("150596695@qq.com");
+			message.setTo("150596695@qq.com");
+			message.setSubject("主题：简单邮件");
+			message.setText("测试邮件内容");
 
-		mailSender.send(message);
+			mailSender.send(message);
+		}
+		catch (Exception ex)
+		{
+			System.console().printf("%s",ex.getMessage());
+		}
+
 	}
 
 	@Test
